@@ -19,11 +19,11 @@ def login(email, password):
     cur.close() 
     engine.close()
     if not rows:
-        return {'message':'Incorrect email'}
+        return {'message':'Incorrect email',}
     elif rows[0][2] != password:
         return {'message':'Incorrect password'}
     else:
-        return {'message':'Correct auth'}
+        return {'message':'Correct auth', 'id':rows[0][0]}
 
 # Register request
 @app.route('/register/<email>/<password>/<username>')
