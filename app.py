@@ -3,7 +3,7 @@ import psycopg2
 from flask_cors import CORS
 
 # Server constants
-SERVER_DIR = "54.160.96.31"
+SERVER_DIR = "54.165.45.105"
 SERVER_DB = "eventmanagerdb"
 
 app = Flask(__name__)
@@ -23,7 +23,7 @@ def login(email, password):
     elif rows[0][2] != password:
         return {'message':'Incorrect password'}
     else:
-        return f"<p>Hello, {rows[0][3]}, id: {rows[0][0]}!</p>"
+        return {'message':'Correct auth'}
 
 # Register request
 @app.route('/register/<email>/<password>/<username>')
